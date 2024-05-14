@@ -26,6 +26,8 @@ var hand
 var move_to_hand_end_pos = Vector2(500,500)
 var move_to_hand_add_to_hand_y_pos = 400
 
+var can_target_timer = 0.5
+
 func _ready():
 	add_to_group("card")
 	#if card_name=="card":
@@ -43,19 +45,29 @@ func _process(delta):
 	if move_to_hand_do(delta):return #do nothing else when moving to hand
 	drag_do()
 	released_do()
-	target_card()
+	target_card(delta)
+
 
 	pass
 #end _process
 func view_only_do():
 	pass
 	
-func target_card():
+func target_card(delta):
 
 	if can_drag:return
 	if !dragging || released:
 		$line.clear_points()
 		targeting = false
+		#prevent bug where you can target after release
+		if released:
+			#the timer prevents targeting about half a second after realese
+			#meaning you will only target once above the target
+			can_target_timer-=delta
+			if can_target_timer<0:
+				Global.selected_card = null
+				can_target_timer = 0.5
+		
 		return
 	var mousePos = get_viewport().get_mouse_position()
 	$line.clear_points()
@@ -75,7 +87,7 @@ func released_do():
 	#when a card is released not on any target
 	if released: 
 		if is_in_hand:hand.order_cards()
-		released = false
+		#released = false
 #end drag_do
 
 
@@ -152,6 +164,7 @@ func _input(event):
 		if( event.is_action_released("click")) :
 			released = true
 			dragging = false
+		else:released = false
 		#check if sprite is clicked
 		var clicked_sprite = $MarginContainer.get_rect().has_point(to_local(event.position)) 
 		if !clicked_sprite:return

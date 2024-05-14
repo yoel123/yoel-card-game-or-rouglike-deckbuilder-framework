@@ -1,7 +1,10 @@
-#yoel godot card game framework
-
+# yoel godot card game framework
+made with godot 3.5
 ## demo gifs:
-[![gameplay 2](https://github.com/yoel123/godot-yoel-space-sim-game/blob/main/gifs/2.gif)]
+[![gameplay 2](https://github.com/yoel123/yoel-card-game-or-rouglike-deckbuilder-framework/blob/main/gifs/1.gif)]
+[![gameplay 2](https://github.com/yoel123/yoel-card-game-or-rouglike-deckbuilder-framework/blob/main/gifs/2.gif)]
+[![gameplay 2](https://github.com/yoel123/yoel-card-game-or-rouglike-deckbuilder-framework/blob/main/gifs/3.gif)]
+[![gameplay 2](https://github.com/yoel123/yoel-card-game-or-rouglike-deckbuilder-framework/blob/main/gifs/4.gif)]
 
 
 

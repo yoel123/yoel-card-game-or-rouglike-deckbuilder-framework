@@ -47,7 +47,7 @@ func _process(delta):
 func do_targeting_card_action(delta):
 	if !can_be_targeted_by_cards:return
 	
-	var mouse_hovering_and_player_selected_a_card = has_mouse_focus && Global.selected_card
+	var mouse_hovering_and_player_selected_a_card = has_mouse_focus && Global.selected_card 
 	
 	if mouse_hovering_and_player_selected_a_card:
 		var is_valid_instance_and_in_card_group = is_instance_valid(Global.selected_card) && Global.selected_card.is_in_group("card")
