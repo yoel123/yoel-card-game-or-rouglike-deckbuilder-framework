@@ -11,3 +11,4 @@ func do_card_action_custom(target):
 	print("do def: ",card_attributes.def)
 	pass
 #end do_card_action_custom
+
