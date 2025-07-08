@@ -8,6 +8,6 @@ func _ready():
 	pass
 
 func do_card_action_custom(target):
-	print("do dmg: ",card_attributes.dmg)
+	if target.has_method("take_dmg"): target.take_dmg(card_attributes.dmg)
 	pass
 #end do_card_action_custom

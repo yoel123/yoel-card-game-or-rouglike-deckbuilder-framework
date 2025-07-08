@@ -223,7 +223,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 84, 183.5 )
+extents = Vector2( 88.5, 183.5 )
 
 [sub_resource type="Gradient" id=5]
 offsets = PoolRealArray( 0, 0.0782123, 0.21229, 1 )
@@ -289,7 +289,7 @@ anims/selected = SubResource( 3 )
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 74, 173.5 )
+position = Vector2( 78.5, 173.5 )
 shape = SubResource( 4 )
 
 [node name="line" type="Line2D" parent="."]

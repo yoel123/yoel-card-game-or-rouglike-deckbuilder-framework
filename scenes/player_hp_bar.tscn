@@ -1,0 +1,18 @@
+[gd_scene format=2]
+
+[node name="player_hp" type="ProgressBar"]
+self_modulate = Color( 0.0784314, 1, 0, 1 )
+margin_left = 15.0
+margin_top = 35.0
+margin_right = 200.0
+margin_bottom = 65.0
+value = 100.0
+allow_greater = true
+percent_visible = false
+
+[node name="Label" type="Label" parent="."]
+margin_top = 5.0
+margin_right = 180.0
+margin_bottom = 27.0
+text = "player hp:"
+align = 1

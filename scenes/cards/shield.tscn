@@ -169,7 +169,6 @@ scale = Vector2( 0.581, 0.704 )
 texture = ExtResource( 3 )
 
 [node name="card_back" type="Sprite" parent="card_container"]
-visible = false
 position = Vector2( 78, 175 )
 scale = Vector2( 1e-05, 5.57 )
 texture = ExtResource( 1 )

@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 var card_name = "card"
 var card_description ="some description"
-var card_attributes = {"dmg":0,"def":0}
+var card_attributes = {"cost":0,"dmg":0,"def":0}
 var card_target = "enemy"
 var vfx_name = "none"
 var once_per_combat_use

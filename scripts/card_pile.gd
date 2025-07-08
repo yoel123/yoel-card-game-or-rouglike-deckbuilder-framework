@@ -29,7 +29,7 @@ export var click_do_action = "draw_card_to_hand"#"open_card_viewer"
 
 
 func _ready():
-	card_viewer = get_node(card_viewer)
+	if card_viewer: card_viewer = get_node(card_viewer)
 	
 	$Area2D.connect("mouse_entered", self, "set", ["has_mouse_focus", true])
 	$Area2D.connect("mouse_exited", self, "set", ["has_mouse_focus", false])
@@ -188,6 +188,15 @@ func draw_top_card_to_hand():
 	pass
 #end draw_top_card_to_hand
 
+func check_card_cost(card):
+	#if card energy >player_combat_stats.energy return false
+	#reduce energy
+	return true
+	pass
+#end check_card_cost
+
+func add_modifiers_to_card_effect(card):
+	pass
 
 func _input(event):
 
