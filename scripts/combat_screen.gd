@@ -1,15 +1,18 @@
 extends Node2D
 
+var screen = "main"
 
 var combat_manger
 var pass_turn_btn
-
+var player_hpbar
 func _ready():
 	combat_manger = $combat_manger
 	var hand = $hand
 	combat_manger.init_player_stats()
 	Global.combat_screen = self
 	pass_turn_btn = $pass_turn_btn
+	player_hpbar = $player_hp
+	Global.player_take_dmg(0) #init hpbar label
 	hand.add_card(add_card_by_name("sword_strike"))
 	hand.add_card(add_card_by_name("shield"))
 		
@@ -35,6 +38,8 @@ func add_card_by_name(card_name):
 
 
 func _on_pass_turn_btn_pressed():
+	
+	if screen !="main":return #only do click in main screen
 	
 	if combat_manger.player_turn:
 		print("pass_turn")

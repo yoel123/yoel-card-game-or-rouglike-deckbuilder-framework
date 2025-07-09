@@ -15,9 +15,15 @@ func _ready():
 
 
 func _process(delta):
-	if !visible:remove_all_cards()
+	visable_handle(delta)
 	pass
 
+func visable_handle(delta):
+	if !visible:
+		remove_all_cards()
+		Global.combat_screen.screen = "main"
+	else:Global.combat_screen.screen = "card_viewer"
+	pass#end visable_handle
 
 func add_cards():
 	if cards.size() ==0:return
@@ -75,11 +81,13 @@ func order_cards():
 
 
 func _on_scroll_up_pressed():
+	if Global.combat_screen.screen != "card_viewer":return
 	scroll_y_do(-170)
 	pass # Replace with function body.
 
 
 func _on_scroll_down_pressed():
+	if Global.combat_screen.screen != "card_viewer":return
 	scroll_y_do(170)
 	pass # Replace with function body.
 

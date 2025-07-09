@@ -1,6 +1,6 @@
 [gd_scene format=2]
 
-[node name="player_hp" type="ProgressBar"]
+[node name="hp_bar" type="ProgressBar"]
 self_modulate = Color( 0.0784314, 1, 0, 1 )
 margin_left = 15.0
 margin_top = 35.0

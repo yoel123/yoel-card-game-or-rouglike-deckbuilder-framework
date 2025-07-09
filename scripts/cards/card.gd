@@ -96,6 +96,7 @@ func released_do():
 func hover_do(event):	
 	if view_only:return #no animation in view only mode
 	if dragging && can_drag:return
+	if Global.selected_card:return #when you drag any card dont do hover anim
 	if !is_in_hand:return #dont do effects if not in hand
 	if event is InputEventMouseMotion:
 		var hover_sprite = $MarginContainer.get_rect().has_point(to_local(event.position)) 
@@ -103,10 +104,12 @@ func hover_do(event):
 			$"card_container/highlight".visible = true
 			if is_in_hand && !mouse_hoverd: $AnimationPlayer.play("selected")
 			mouse_hoverd = true
+			$card_container.z_index = 99999999
 		else:
 			$"card_container/highlight".visible = false
 			if mouse_hoverd:$AnimationPlayer.play("deselected")
 			mouse_hoverd = false
+			$card_container.z_index = 0
 	pass
 #end hover_do
 
@@ -172,9 +175,11 @@ func _input(event):
 		if  event.button_index == BUTTON_LEFT && event.pressed:
 			dragging = true
 			Global.selected_card = self
+			self.z_index = 99999999
 		elif(event.button_index == BUTTON_LEFT and not event.pressed) :
 			if dragging: released = true
 			dragging = false
 			Global.selected_card = null
+			self.z_index = 0
 
 #end _input

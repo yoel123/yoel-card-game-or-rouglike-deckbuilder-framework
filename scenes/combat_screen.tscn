@@ -7,7 +7,7 @@
 [ext_resource path="res://imgs/test cards/red-dragon-flight-card--687005249.png" type="Texture" id=5]
 [ext_resource path="res://scenes/enemies/enemy_base.tscn" type="PackedScene" id=6]
 [ext_resource path="res://icon.png" type="Texture" id=7]
-[ext_resource path="res://scenes/player_hp_bar.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/hp_bar.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/combat_manger.tscn" type="PackedScene" id=9]
 
 [node name="combat_screen" type="Node2D"]
@@ -17,6 +17,7 @@ script = ExtResource( 4 )
 
 [node name="card_pile" parent="." instance=ExtResource( 1 )]
 position = Vector2( 11, 198 )
+do_card_action_when_droped = false
 card_viewer = NodePath("../cards_viewer")
 
 [node name="cards_viewer" parent="." instance=ExtResource( 3 )]
@@ -24,6 +25,13 @@ visible = false
 
 [node name="card_pile2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 234, 204 )
+do_card_action_when_droped = false
+card_viewer = NodePath("../cards_viewer")
+click_do_action = "open_card_viewer"
+
+[node name="card_pile3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 427, 57 )
+show_top_card = true
 card_viewer = NodePath("../cards_viewer")
 click_do_action = "open_card_viewer"
 
@@ -31,18 +39,21 @@ click_do_action = "open_card_viewer"
 position = Vector2( 512, 314 )
 z_index = -1
 texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="enemy_base" parent="." instance=ExtResource( 6 )]
-position = Vector2( 723, 213 )
+position = Vector2( 710, 203 )
 
 [node name="enemy_base2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 871, 203 )
 
 [node name="pass_turn_btn" type="TextureButton" parent="."]
-margin_left = 11.0
-margin_top = 106.0
-margin_right = 75.0
-margin_bottom = 170.0
+margin_left = 111.0
+margin_top = 89.0
+margin_right = 175.0
+margin_bottom = 153.0
 texture_normal = ExtResource( 7 )
 texture_pressed = ExtResource( 7 )
 

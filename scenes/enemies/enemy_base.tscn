@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://scripts/enemies/enemy_base.gd" type="Script" id=2]
+[ext_resource path="res://scenes/hp_bar.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 51, 69.5 )
@@ -62,3 +63,9 @@ frame = 2
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 2 )
 anims/attack = SubResource( 3 )
+
+[node name="hp_bar" parent="." instance=ExtResource( 3 )]
+margin_left = -29.0
+margin_top = 168.0
+margin_right = 133.0
+margin_bottom = 198.0

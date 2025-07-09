@@ -1,5 +1,7 @@
 extends Node
 
+var dragging_a_card
+
 var selected_card
 var player = {"max_hp":10,"hp":10,"energy_max":3}
 var player_combat_stats
@@ -9,6 +11,7 @@ var enemies_to_fight
 
 var world_map
 var combat_screen
+
 func _ready():
 	pass
 #end _ready
@@ -25,3 +28,13 @@ func gen_combat_stats_obj():
 	
 	pass
 #end gen_combat_stats_obj
+
+
+func player_take_dmg(dmg,type="normal"):
+	player.hp-=dmg
+	combat_screen.player_hpbar.value = player.hp
+	combat_screen.player_hpbar.max_value = player.max_hp
+	combat_screen.player_hpbar.get_node("Label").text = "player hp:"+str(player.hp)+"/"+str( player.max_hp)
+	pass#end player_take_dmg
+
+

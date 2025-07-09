@@ -29,6 +29,7 @@ export var click_do_action = "draw_card_to_hand"#"open_card_viewer"
 
 
 func _ready():
+	
 	if card_viewer: card_viewer = get_node(card_viewer)
 	
 	$Area2D.connect("mouse_entered", self, "set", ["has_mouse_focus", true])
